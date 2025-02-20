@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>נגן מוזיקה</title>
+    <link rel="stylesheet" href="style.css">
+    
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="player-container">
+        <div class="top-section">
+            <button class="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+            <h2>Playing</h2>
+        </div>
+        
+        <div class="album-art">
+            <img src="image.jpg" alt="On My Way - Alan Walker">
+        </div>
+
+        <div class="song-info">
+            <div class="song-details">
+                <h3>On My Way</h3>
+                <p>Allen Walker</p>
+            </div>
+            <div class="song-actions">
+                <button><i class="fas fa-share-alt"></i></button>
+                <button><i class="fas fa-download"></i></button>
+                <button class="heart-button"><i class="far fa-heart"></i></button>
+                <!-- <button class="heart"><i class="fas fa-heart"></i></button> -->
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress" min="0" value="0" step="1">
+            <span id="total-time">3:34</span>
+        </div>
+        
+        <div class="controls">
+            <button id="retweet"><i class="fa fa-retweet" aria-hidden="true"></i></button>
+            <button id="prev"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+            <button id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+            <button id="shuffle"><i class="fa fa-shuffle" aria-hidden="true"></i></button>
+        </div>
+        
+        <div class="up-next-header">
+            <h3>Up next</h3>
+            <a href="#" class="view-all">View All ›</a>
+        </div>
+
+        <div class="song-list-container">
+            <div class="song-list">
+                <!-- Added more songs to demonstrate scrolling -->
+                <div class="song-item">
+                    <img src="image.jpg" alt="Ranjhna" class="song-thumbnail">
+                    <div class="song-info-bottom">
+                        <div class="song-title">Ranjhna</div>
+                        <div class="song-artist">B Park</div>
+                    </div>
+                    <button class="action-button">♡</button>
+                    <button class="action-button">⋮</button>
+                </div>
+
+                <div class="song-item">
+                    <img src="image.jpg" alt="Barish" class="song-thumbnail">
+                    <div class="song-info-bottom">
+                        <div class="song-title">Barish</div>
+                        <div class="song-artist">Barish</div>
+                    </div>
+                    <button class="action-button">♡</button>
+                    <button class="action-button">⋮</button>
+                </div>
+
+                <div class="song-item">
+                    <img src="image.jpg" alt="Bom Diggi" class="song-thumbnail">
+                    <div class="song-info-bottom">
+                        <div class="song-title">Bom Diggi Bom Bom</div>
+                        <div class="song-artist">Unknown Artist</div>
+                    </div>
+                    <button class="action-button">♡</button>
+                    <button class="action-button">⋮</button>
+                </div>
+
+                <!-- Additional songs to show scrolling -->
+                <div class="song-item">
+                    <img src="image.jpg" alt="Song 4" class="song-thumbnail">
+                    <div class="song-info-bottom">
+                        <div class="song-title">On My Way</div>
+                        <div class="song-artist">Alan Walker</div>
+                    </div>
+                    <button class="action-button">♡</button>
+                    <button class="action-button">⋮</button>
+                </div>
+
+                <div class="song-item">
+                    <img src="image.jpg" alt="Song 5" class="song-thumbnail">
+                    <div class="song-info-bottom">
+                        <div class="song-title">Faded</div>
+                        <div class="song-artist">Alan Walker</div>
+                    </div>
+                    <button class="action-button">♡</button>
+                    <button class="action-button">⋮</button>
+                </div>
+
+                <div class="song-item">
+                    <img src="image.jpg" alt="Song 6" class="song-thumbnail">
+                    <div class="song-info-bottom">
+                        <div class="song-title">Alone</div>
+                        <div class="song-artist">Alan Walker</div>
+                    </div>
+                    <button class="action-button">♡</button>
+                    <button class="action-button">⋮</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <button><i class="fa-solid fa-house" aria-hidden="true"></i></button>
+            <button><i class="fa-solid fa-heart" aria-hidden="true"></i></button>
+            <button><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>
+            <button><i class="fa-solid fa-cog" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>
