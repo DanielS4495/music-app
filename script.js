@@ -1,7 +1,8 @@
 const songs = [
     { title: "On My Way", artist: "Allen Walker", duration: 334 },
-    { title: "Ranjhna", artist: "B Park", duration: 200 },
-    { title: "Barish", artist: "Barish", duration: 230 }
+    { title: "Ranjhna", artist: "B Park", duration: 334 },
+    { title: "Barish", artist: "Barish", duration: 334
+     }
 ];
 
 const heartButton = document.getElementById("heart-button");
@@ -33,19 +34,23 @@ function updateProgress() {
         currentTimeDisplay.textContent = formatTime(currentTime);
     } else {
         clearInterval(interval);
-        playPauseBtn.textContent =  "Play";
+        progressBar.value = duration; // לוודא שהסרגל יגיע בדיוק לסוף
+        currentTimeDisplay.textContent = formatTime(duration); // עדכון הספירה לזמן הסופי
+        playPauseBtn.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
         isPlaying = false;
     }
 }
 
+
 function playPause() {
+    playPauseBtn.innerHTML = '';
     if (isPlaying) {
         clearInterval(interval);
-        playPauseBtn.textContent =  "Play";
+        playPauseBtn.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
     } else {
         updateProgress();
         interval = setInterval(updateProgress, 1000);
-        playPauseBtn.textContent =  "Pause";
+        playPauseBtn.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
     }
     isPlaying = !isPlaying;
 }
@@ -61,8 +66,9 @@ function loadSong(index) {
     progressBar.value = 0;
     progressBar.max = duration;
     progressBar.setAttribute("max", duration);
-
+    console.log("ProgressBar Max Set To:", progressBar.max);
     currentTimeDisplay.textContent = "0:00";
+
 }
 
 nextBtn.addEventListener('click', () => {
@@ -81,19 +87,7 @@ progressBar.addEventListener('input', (event) => {
     currentTimeDisplay.textContent = formatTime(currentTime);
 });
 
-document.querySelectorAll(".heart").forEach(button => {
-    button.addEventListener("click", () => {
-        const heartIcon = button.querySelector("i");
 
-        if (heartIcon.classList.contains("far")) {
-            heartIcon.classList.remove("far");
-            heartIcon.classList.add("fas");
-        } else {
-            heartIcon.classList.remove("fas");
-            heartIcon.classList.add("far");
-        }
-    });
-});
 
 class MenuSystem {
     constructor() {
@@ -169,24 +163,26 @@ function createThreeDotsButton(items) {
 // const button = createThreeDotsButton(menuItems);
 // songElement.appendChild(button);
 
-
-
-
-// Heart Animation
-// const heartContainer = document.querySelector('.heart-container');
-// const heart = heartContainer.querySelector('.heart');
-// const emptyHeart = heart.querySelector('.far');
-// const fullHeart = heart.querySelector('.fas');
-
-// heartContainer.addEventListener('click', () => {
-//   emptyHeart.classList.toggle('active');
-//   fullHeart.classList.toggle('active');
-// });
-//
-
-
-// console.log("Duration Set:", duration);
-// console.log("Progress Max:", progressBar.max);
+// לאחר טעינת הדף
+document.addEventListener('DOMContentLoaded', () => {
+    // מצא את כל כפתורי הלבבות
+    const buttons = document.querySelectorAll('.heart-button');
+    
+    // הוסף את הפונקציונליות לכל כפתור
+    buttons.forEach(button => {
+        button.onclick = (e) => {
+            e.stopPropagation();
+            heart(button);
+        };
+    });
+});
+function heart(button) {
+    if (button.innerHTML == '<i class="fas fa-heart" aria-hidden="true"></i>') {
+        button.innerHTML = '<i class="far fa-heart" aria-hidden="true"></i>';
+    } else {
+        button.innerHTML = '<i class="fas fa-heart" aria-hidden="true"></i>';
+    }
+}
 // לאחר טעינת הדף
 document.addEventListener('DOMContentLoaded', () => {
     // מצא את כל כפתורי שלוש הנקודות

@@ -98,8 +98,16 @@ body {
     cursor: pointer;
 }
 .song-actions .heart-button {
-    color: red;
+    color: white;
 }
+.heart-button {
+    color: gray;
+    background: none;
+    border: none;
+    font-size:medium ;
+    cursor: pointer;
+}
+
 .album-art {
     width: 75%;
     height: 100%;
